@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         options: {
           reporter: 'spec'
         },
-        src: ['test/**/*.js']
+        src: ['test/*.js']
       }
     },
 
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      client: 'public/**/*.js',
+      client: 'public/*.js',
       options: {
         force: 'true',
         jshintrc: '.jshintrc',
