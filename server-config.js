@@ -12,7 +12,7 @@ app.configure(function() {
   app.use(partials());
   app.use(express.bodyParser());
   app.use(express.static(__dirname + '/public'));
-  app.use(express.cookieParser(process.env.COOKIESECRET);
+  app.use(express.cookieParser(process.env.COOKIESECRET));
   app.use(express.session(process.env.SESSIONSECRET));
 });
 
