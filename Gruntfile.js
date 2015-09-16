@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      files: 'public/**/*.js',
+      client: 'public/**/*.js',
       options: {
         force: 'true',
         jshintrc: '.jshintrc',
@@ -73,6 +73,11 @@ module.exports = function(grunt) {
 
     shell: {
       prodServer: {
+        // ????????
+      },
+
+      deploy: {
+        command: 'git push azure master'
       }
     },
   });
@@ -111,19 +116,24 @@ module.exports = function(grunt) {
     'jshint',
     'concat',
     'uglify',
-    'cssmin'
+    'cssmin',
+    'test'
   ]);
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
       // add your production server task here
+      grunt.task.run('deploy');
     } else {
-      grunt.task.run([ 'server-dev' ]);
+      grunt.task.run([ 'jshint', 'test', 'server-dev' ]);
     }
   });
 
   grunt.registerTask('deploy', [
       // add your production server task here
+      'jshint',
+      'test',
+      'shell:deploy'
   ]);
 
 
