@@ -31,7 +31,10 @@
     "bluebird": "1.0.8"
   },
   "devDependencies": {
+    "nodemon": "^1.5.1",
     "supertest": "^0.10.0"
   },
-  "engines" : {"node": "~0.12"}
+  "engines": {
+    "node": "~0.12"
+  }
 }
