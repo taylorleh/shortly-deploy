@@ -38,8 +38,8 @@ module.exports = function(grunt) {
         force: 'true',
         jshintrc: '.jshintrc',
         ignores: [
-          'public/lib/**/*.js',
-          'public/dist/**/*.js'
+          'public/lib/*.js',
+          'public/dist/*.js'
         ]
       }
     },
@@ -57,8 +57,8 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: [
-          'public/client/**/*.js',
-          'public/lib/**/*.js',
+          'public/client/*.js',
+          'public/lib/*.js',
         ],
         tasks: [
           'concat',
