@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      client: 'public/*.js',
+      client: 'public/client/*.js',
       options: {
         force: 'true',
         jshintrc: '.jshintrc',
