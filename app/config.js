@@ -1,6 +1,7 @@
 var Bookshelf = require('bookshelf');
 var path = require('path');
 
+// TODO: for mongolab, use config.js
 var db = Bookshelf.initialize({
   client: 'sqlite3',
   connection: {
