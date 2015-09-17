@@ -5,13 +5,18 @@ module.exports = function(grunt) {
     concat: {
       client: {
         src: [
+        'public/client/*.js'
+        ],
+        dest: 'public/dist/client.js'
+      },
+      lib: {
+        src: [
         'public/lib/handlebars.js',
         'public/lib/underscore.js',
         'public/lib/jquery.js',
         'public/lib/backbone.js',
-        'public/client/*.js'
         ],
-        dest: 'public/dist/build.js'
+        dest: 'public/dist/lib.js'
       },
       options: {
         separator: ';\n'
@@ -36,14 +41,19 @@ module.exports = function(grunt) {
     uglify: {
       client: {
         files: {
-          'public/dist/build.min.js': 'public/dist/build.js'
+          'public/dist/client.min.js': 'public/dist/client.js'
+        }
+      },
+      lib: {
+        files: {
+          'public/dist/lib.min.js': 'public/dist/lib.js'
         }
       }
     },
 
     jshint: {
       client: 'public/client/*.js',
-      concat: 'public/dist/build.js',
+      // concat: 'public/dist/build.js',
       options: {
         force: 'true',
         jshintrc: '.jshintrc',
@@ -126,7 +136,7 @@ module.exports = function(grunt) {
     'jshint:client',
     'concat',
     'uglify',
-    'jshint:concat',
+    // 'jshint:concat',
     'cssmin'
   ]);
 
