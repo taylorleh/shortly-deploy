@@ -6,6 +6,9 @@ module.exports = function(grunt) {
       client: {
         src: ['public/lib/*.js', 'public/client/*.js'],
         dest: 'public/dist/build.js'
+      },
+      options: {
+        // separator: ';\n'
       }
     },
 
@@ -34,12 +37,13 @@ module.exports = function(grunt) {
 
     jshint: {
       client: 'public/client/*.js',
+      concat: 'public/dist/build.js',
       options: {
         force: 'true',
         jshintrc: '.jshintrc',
         ignores: [
-          'public/lib/*.js',
-          'public/dist/*.js'
+          'public/lib/*.js'
+          // 'public/dist/*.js'
         ]
       }
     },
@@ -113,9 +117,10 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'jshint',
+    'jshint:client',
     'concat',
     'uglify',
+    'jshint:concat',
     'cssmin'
   ]);
 
