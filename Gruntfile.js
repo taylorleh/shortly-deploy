@@ -4,11 +4,17 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       client: {
-        src: ['public/lib/*.js', 'public/client/*.js'],
+        src: [
+        'public/lib/handlebars.js',
+        'public/lib/underscore.js',
+        'public/lib/jquery.js',
+        'public/lib/backbone.js',
+        'public/client/*.js'
+        ],
         dest: 'public/dist/build.js'
       },
       options: {
-        // separator: ';\n'
+        separator: ';\n'
       }
     },
 
